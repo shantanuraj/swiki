@@ -99,10 +99,4 @@ func init() {
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))
 
-	resourceHandler := http.StripPrefix("/res/", http.FileServer(http.Dir("res")))
-	vendorHandler := http.StripPrefix("/lib/", http.FileServer(http.Dir("vendor")))
-
-	http.Handle("/res/", resourceHandler)
-	http.Handle("/lib/", vendorHandler)
-
 }

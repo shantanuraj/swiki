@@ -8,11 +8,11 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.icos
 
-- url: /.*
-  script: _go_app
-
 - url: /res
   static_dir: res
 
 - url: /lib
   static_dir: vendor
+
+- url: /.*
+  script: _go_app
