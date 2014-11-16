@@ -1,0 +1,9 @@
+swiki
+=====
+
+Small efficient, notes app for the App Engine written using the `net/http` Go package.
+
+Author
+------
+
+Shantanu [shantanuraj@ovi.com](mailto:shantanuraj@ovi.com)
