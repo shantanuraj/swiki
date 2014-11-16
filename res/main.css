@@ -1,0 +1,12 @@
+body {
+  padding-top: 48px;
+}
+
+textarea {
+	width: 100%;
+	background-color: #fefefe;
+}
+
+.btn {
+	margin-top: 8px;
+}

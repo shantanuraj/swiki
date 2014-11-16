@@ -1,0 +1,15 @@
+{
+  "name": "swiki",
+  "version": "0.0.0",
+  "authors": [
+    "Shantanu <shantanuraj@ovi.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
