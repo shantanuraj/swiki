@@ -16,6 +16,13 @@ indexes:
   - name: Date
     direction: desc
 
+- kind: Wiki
+  ancestor: yes
+  properties:
+  - name: Title
+  - name: Date
+    direction: desc
+
 - kind: Wikis
   ancestor: yes
   properties:

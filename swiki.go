@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"regexp"
+	"time"
 )
 
 var (
@@ -16,6 +17,7 @@ var (
 type Page struct {
 	Title string
 	Body  []byte
+	Date  time.Time
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string, page *Page) {
@@ -57,7 +59,7 @@ func editHandler(w http.ResponseWriter, r *http.Request, title string) {
 
 func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	body := r.FormValue("body")
-	page := &Page{Title: title, Body: []byte(body)}
+	page := &Page{Title: title, Body: []byte(body), Date: time.Now()}
 
 	c := appengine.NewContext(r)
 	key := datastore.NewIncompleteKey(c, "Wiki", wikiStoreKey(c))
@@ -77,7 +79,7 @@ func wikiStoreKey(c appengine.Context) *datastore.Key {
 
 func getWiki(title string, r *http.Request) (*Page, error) {
 	c := appengine.NewContext(r)
-	q := datastore.NewQuery("Wiki").Ancestor(wikiStoreKey(c)).Filter("Title =", title)
+	q := datastore.NewQuery("Wiki").Ancestor(wikiStoreKey(c)).Filter("Title =", title).Order("-Date")
 	wikis := make([]Page, 0, 5)
 	page := new(Page)
 
